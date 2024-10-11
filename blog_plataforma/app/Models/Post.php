@@ -21,6 +21,8 @@ class Post extends Model
         'titulo',
         'slug',
         'conteudo',
+        'data_post',
+        'foto',
         'user_id'
     ];
 
