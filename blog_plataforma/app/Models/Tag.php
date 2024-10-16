@@ -12,9 +12,9 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'slug'];
+    protected $fillable = ['name', 'slug'];
 
-    
+
     public function post(): BelongsToMany
     {
         return $this->belongsToMany(Post::class);
@@ -26,11 +26,11 @@ class Tag extends Model
         parent::boot();
 
         static::creating(function ($tag) {
-            $tag->slug = Str::slug($tag->nome);
+            $tag->slug = Str::slug($tag->name);
         });
 
         static::updating(function ($tag) {
-            $tag->slug = Str::slug($tag->nome);
+            $tag->slug = Str::slug($tag->name);
         });
     }
 }

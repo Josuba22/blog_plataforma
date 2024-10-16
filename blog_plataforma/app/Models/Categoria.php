@@ -12,7 +12,7 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'slug'];
+    protected $fillable = ['name', 'slug'];
 
 
     public function post(): BelongsToMany
@@ -25,11 +25,11 @@ class Categoria extends Model
         parent::boot();
 
         static::creating(function ($categoria) {
-            $categoria->slug = Str::slug($categoria->nome);
+            $categoria->slug = Str::slug($categoria->name);
         });
 
         static::updating(function ($categoria) {
-            $categoria->slug = Str::slug($categoria->nome);
+            $categoria->slug = Str::slug($categoria->name);
         });
     }
 }
